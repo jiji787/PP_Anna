@@ -1,1 +1,1 @@
-﻿Console.WriteLine("хай BITCH!");
+﻿Console.WriteLine("пивяу мяу!");
