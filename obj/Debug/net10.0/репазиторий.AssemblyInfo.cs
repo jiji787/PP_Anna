@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("репазиторий")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fbe1ab46d5285a0109a5c1a19fcb6135c773b02")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41adbc00c0ca4d2870832bf7e5a0a07082650be4")]
 [assembly: System.Reflection.AssemblyProductAttribute("репазиторий")]
 [assembly: System.Reflection.AssemblyTitleAttribute("репазиторий")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,3 +12,9 @@ C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\refint\реп
 C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\репазиторий.pdb
 C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\репазиторий.genruntimeconfig.cache
 C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\ref\репазиторий.dll
+C:\Users\HP\Desktop\jisun\репазиторий\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\HP\Desktop\jisun\репазиторий\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\HP\Desktop\jisun\репазиторий\bin\Debug\net10.0\Npgsql.dll
+C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\репазиторий.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\репазиторий.sourcelink.json
+C:\Users\HP\Desktop\jisun\репазиторий\obj\Debug\net10.0\________.E15F89F5.Up2Date
