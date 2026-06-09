@@ -75,6 +75,67 @@
   - Выделены сущности, value object, агрегаты в нотации DDD.
 - **Артефакт:** [requirements.md](requirements.md)
 
+### 09.06.2026 (вт)
+
+- **Что сделано:**
+  - Создана диаграмма последовательности для сценария «Создание заказа».
+  - Создана диаграмма компонентов, отражающая архитектуру приложения «Золотце».
+- **Артефакты:** диаграммы в формате Mermaid (см. ниже).
+
+#### Диаграмма последовательности (Sequence Diagram)
+
+Сценарий: пользователь создаёт новый заказ, добавляет товары, система сохраняет заказ и его позиции.
+
+```mermaid
+sequenceDiagram
+    participant User as Пользователь
+    participant App as Консольное приложение
+    participant OrderService as Условный сервис заказов
+    participant DB as PostgreSQL
+
+    User->>App: Выбор пункта "Создать заказ"
+    App->>App: Показать список пользователей
+    User->>App: Ввод ID пользователя
+    App->>DB: INSERT INTO orders (user_id)
+    DB-->>App: Возврат ID нового заказа
+    loop Для каждого товара
+        App->>App: Показать список товаров
+        User->>App: Ввод ID товара и количества
+        App->>DB: INSERT INTO order_items
+    end
+    App->>User: Сообщение "Заказ сформирован"
+```
+
+
+####Диаграмма компонентов (Component Diagram)
+- Показывает внутреннее устройство консольного приложения «Золотце» на уровне компонентов.
+
+```markdown
+graph TD
+    UI["Консольный интерфейс (меню)"] --> UserCtrl["UserController (логика работы с пользователями)"]
+    UI --> ProductCtrl["ProductController (логика работы с товарами)"]
+    UI --> OrderCtrl["OrderController (логика работы с заказами)"]
+    UI --> ReportCtrl["ReportController (отчёты)"]
+
+    UserCtrl --> UserRepo["UserRepository (доступ к таблице users)"]
+    ProductCtrl --> ProductRepo["ProductRepository (доступ к products)"]
+    OrderCtrl --> OrderRepo["OrderRepository (доступ к orders, order_items)"]
+    ReportCtrl --> OrderRepo
+
+    UserRepo --> DB[(PostgreSQL)]
+    ProductRepo --> DB
+    OrderRepo --> DB
+```
+
+###допустим проверим как чахряняетси отображается диаграммы 
+**привяу мяу**
+*орпа*
+
+
+
+
+
+
 
 
 
