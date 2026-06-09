@@ -67,6 +67,43 @@
   - Проверена, оценена куратором вся проделанная работа.
   - Подведены итоги недели.
 
+## С4-диаграмма контекста cистемы
+```mermaid
+graph TD
+    User(("Пользователь")) --> App["Консольное приложение (C#)"]
+    App --> DB[("База данных PostgreSQL")]
+    App --> Git["GitHub (хранение кода)"]
+```
+## С4-диаграмма контейнеров
+```mermaid
+graph TD
+    App["Консольное приложение (C#)"] --> DB[("База данных PostgreSQL")]
+```
+## C4-диаграмма компонентов 
+```mermaid
+graph TD
+    Client(("Клиент")) --> OsagoApp["Система ОСАГО (веб-приложение)"]
+    Seller(("Продавец")) --> OsagoApp
+
+    subgraph Internal["Внутренние сервисы системы ОСАГО"]
+        ContractService["Сервис договоров"]
+        PaymentService["Сервис платежей"]
+        DocumentService["Сервис документов"]
+        DB[(Общая база данных)]
+    end
+
+    OsagoApp --> ContractService
+    OsagoApp --> PaymentService
+    OsagoApp --> DocumentService
+
+    ContractService --> DB
+    PaymentService --> DB
+    DocumentService --> DB
+
+    PaymentService --> ExternalPayment["Платёжная система (внешняя)"]
+    DocumentService --> ExternalDoc["Система документов (внешняя)"]
+```
+
 ### 08.06.2026 (пн)
 
 - **Что сделано:**
@@ -83,9 +120,7 @@
 - **Артефакты:** диаграммы в формате Mermaid (см. ниже).
 
 #### Диаграмма последовательности (Sequence Diagram)
-
-Сценарий: пользователь создаёт новый заказ, добавляет товары, система сохраняет заказ и его позиции.
-
+- Сценарий: пользователь создаёт новый заказ, добавляет товары, система сохраняет заказ и его позиции.
 ```mermaid
 sequenceDiagram
     participant User as Пользователь
@@ -105,12 +140,9 @@ sequenceDiagram
     end
     App->>User: Сообщение "Заказ сформирован"
 ```
-
-
-####Диаграмма компонентов (Component Diagram)
+### Диаграмма компонентов (Component Diagram)
 - Показывает внутреннее устройство консольного приложения «Золотце» на уровне компонентов.
-
-```markdown
+```mermaid
 graph TD
     UI["Консольный интерфейс (меню)"] --> UserCtrl["UserController (логика работы с пользователями)"]
     UI --> ProductCtrl["ProductController (логика работы с товарами)"]
@@ -127,9 +159,7 @@ graph TD
     OrderRepo --> DB
 ```
 
-###допустим проверим как чахряняетси отображается диаграммы 
-**привяу мяу**
-*орпа*
+### чахряняетеси
 
 
 
