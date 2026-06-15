@@ -130,3 +130,15 @@ INSERT INTO order_items (order_id, product_id, quantity, price_at_time)
 SELECT o.id, p.id, 1, p.price
 FROM orders o, products p
 WHERE o.id = 10 AND p.name IN ('Наушники', 'Клавиатура');
+
+CREATE TABLE IF NOT EXISTS "OrderStatuses" (
+    "Id" SERIAL PRIMARY KEY,
+    "Name" VARCHAR(50) NOT NULL
+);
+
+INSERT INTO "OrderStatuses" ("Id", "Name") VALUES
+(1, 'новый'),
+(2, 'оплачен'),
+(3, 'отправлен'),
+(4, 'завершён')
+ON CONFLICT ("Id") DO NOTHING;

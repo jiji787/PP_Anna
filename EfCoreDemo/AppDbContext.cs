@@ -4,15 +4,25 @@ namespace EfCoreDemo;
 
 public class AppDbContext : DbContext
 {
+    // Конструктор без параметров (используется в основном приложении)
+    public AppDbContext() { }
+
+    // Конструктор с параметрами (используется в тестах для InMemory)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
     public DbSet<User> Users { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
-    public DbSet<OrderStatus> OrderStatuses { get; set; }   // <-- ЭТУ СТРОКУ ДОБАВЬТЕ
+    public DbSet<OrderStatus> OrderStatuses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Золотце;Username=postgres;Password=postgres890");
+        // Этот метод вызывается только если не переданы параметры в конструктор
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Золотце;Username=postgres;Password=postgres890");
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
