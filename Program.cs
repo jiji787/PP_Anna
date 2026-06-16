@@ -6,6 +6,7 @@ using System.IO;
 class Program
 {
     static string connectionString = "Host=localhost;Port=5432;Database=Золотце;Username=postgres;Password=postgres890";
+    static UserService userService = new UserService(connectionString);
 
     static void Main(string[] args)
     {
@@ -76,12 +77,12 @@ class Program
 
             switch (choice)
             {
-                case "1": ShowUsers(); break;
-                case "2": AddUser(); break;
-                case "3": UpdateUser(); break;
-                case "4": DeleteUser(); break;
-                case "5": FindUserByName(); break;
-                case "6": ShowStatistics(); break;
+                case "1": userService.ShowUsers(); break;
+                case "2": userService.AddUser(); break;
+                case "3": userService.UpdateUser(); break;
+                case "4": userService.DeleteUser(); break;
+                case "5": userService.FindUserByName(); break;
+                case "6": userService.ShowStatistics(); break;
                 case "7": back = true; break;
                 default: Console.WriteLine("Неверный выбор или ввод."); break;
             }
