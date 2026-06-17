@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/__EfCoreDemo.Tests/">
+    <Project Path="__EfCoreDemo.Tests/EfCoreDemo.Tests.csproj" />
+  </Folder>
+  <Folder Name="/__EfCoreDemo/">
+    <Project Path="__EfCoreDemo/EfCoreDemo.csproj" />
+  </Folder>
+  <Project Path="PP_Anna.Api/PP_Anna.Api.csproj" />
+  <Project Path="репазиторий.csproj" />
+</Solution>
