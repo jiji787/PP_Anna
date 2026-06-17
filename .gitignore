@@ -1,0 +1,12 @@
+# Проекты .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.lock.json
+.vs/
+
+# Папки сборки
+**/bin/
+**/obj/
