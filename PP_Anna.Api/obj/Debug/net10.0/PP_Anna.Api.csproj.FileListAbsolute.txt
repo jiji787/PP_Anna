@@ -62,3 +62,9 @@ C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\obj\Debug\net10.0\r
 C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\obj\Debug\net10.0\PP_Anna.Api.pdb
 C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\obj\Debug\net10.0\PP_Anna.Api.genruntimeconfig.cache
 C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\obj\Debug\net10.0\ref\PP_Anna.Api.dll
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\bin\Debug\net10.0\RESPite.dll
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\bin\Debug\net10.0\StackExchange.Redis.dll
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\bin\Debug\net10.0\System.IO.Hashing.dll
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\bin\Debug\net10.0\VaultSharp.dll
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\bin\Debug\net10.0\PP_Anna.Api.xml
+C:\Users\HP\Desktop\jisun\репазиторий\PP_Anna.Api\obj\Debug\net10.0\PP_Anna.Api.xml

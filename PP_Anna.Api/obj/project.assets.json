@@ -283,6 +283,19 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "VaultSharp/1.17.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/VaultSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/VaultSharp.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -800,6 +813,41 @@
         "system.io.hashing.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "VaultSharp/1.17.5.1": {
+      "sha512": "1O/F+AQCkyK4K709pBDYEbDDfJ12OlaE5lnOs9dffq+KxqrnPxh8FIdQtEst9yBJmC7I0BptftzTJyRSwhZR/A==",
+      "type": "package",
+      "path": "vaultsharp/1.17.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net462/VaultSharp.dll",
+        "lib/net462/VaultSharp.xml",
+        "lib/net47/VaultSharp.dll",
+        "lib/net47/VaultSharp.xml",
+        "lib/net471/VaultSharp.dll",
+        "lib/net471/VaultSharp.xml",
+        "lib/net472/VaultSharp.dll",
+        "lib/net472/VaultSharp.xml",
+        "lib/net48/VaultSharp.dll",
+        "lib/net48/VaultSharp.xml",
+        "lib/net481/VaultSharp.dll",
+        "lib/net481/VaultSharp.xml",
+        "lib/net6.0/VaultSharp.dll",
+        "lib/net6.0/VaultSharp.xml",
+        "lib/net7.0/VaultSharp.dll",
+        "lib/net7.0/VaultSharp.xml",
+        "lib/net8.0/VaultSharp.dll",
+        "lib/net8.0/VaultSharp.xml",
+        "lib/netstandard2.0/VaultSharp.dll",
+        "lib/netstandard2.0/VaultSharp.xml",
+        "lib/netstandard2.1/VaultSharp.dll",
+        "lib/netstandard2.1/VaultSharp.xml",
+        "vaultsharp.1.17.5.1.nupkg.sha512",
+        "vaultsharp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -807,7 +855,8 @@
       "Confluent.Kafka >= 2.14.2",
       "Microsoft.AspNetCore.OpenApi >= 10.0.8",
       "StackExchange.Redis >= 3.0.0",
-      "Swashbuckle.AspNetCore >= 10.2.1"
+      "Swashbuckle.AspNetCore >= 10.2.1",
+      "VaultSharp >= 1.17.5.1"
     ]
   },
   "packageFolders": {
@@ -870,6 +919,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[10.2.1, )"
+          },
+          "VaultSharp": {
+            "target": "Package",
+            "version": "[1.17.5.1, )"
           }
         },
         "imports": [

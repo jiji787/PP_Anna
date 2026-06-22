@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "PP_Anna.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Cache/{id}": {
+      "get": {
+        "tags": [
+          "Cache"
+        ],
+        "summary": "Получает данные по идентификатору с использованием кэширования (паттерн Cache-Aside).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Идентификатор данных.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Kafka/send": {
+      "post": {
+        "tags": [
+          "Kafka"
+        ],
+        "summary": "Отправляет сообщение в Kafka (в mock-режиме).",
+        "requestBody": {
+          "description": "Сообщение в формате JSON.",
+          "content": {
+            "application/json": {
+              "schema": { }
+            },
+            "text/json": {
+              "schema": { }
+            },
+            "application/*+json": {
+              "schema": { }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Secret/{key}": {
+      "get": {
+        "tags": [
+          "Secret"
+        ],
+        "summary": "Получает секрет по ключу из Vault или мок-хранилища.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "Ключ секрета.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { },
+  "tags": [
+    {
+      "name": "Cache"
+    },
+    {
+      "name": "Kafka"
+    },
+    {
+      "name": "Secret"
+    }
+  ]
+}

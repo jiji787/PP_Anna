@@ -10,7 +10,9 @@
         "dependencies": {
           "Confluent.Kafka": "2.14.2",
           "Microsoft.AspNetCore.OpenApi": "10.0.8",
-          "Swashbuckle.AspNetCore": "10.2.1"
+          "StackExchange.Redis": "3.0.0",
+          "Swashbuckle.AspNetCore": "10.2.1",
+          "VaultSharp": "1.17.5.1"
         },
         "runtime": {
           "PP_Anna.Api.dll": {}
@@ -180,6 +182,26 @@
           }
         }
       },
+      "RESPite/3.0.0": {
+        "runtime": {
+          "lib/net10.0/RESPite.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.11234"
+          }
+        }
+      },
+      "StackExchange.Redis/3.0.0": {
+        "dependencies": {
+          "RESPite": "3.0.0",
+          "System.IO.Hashing": "10.0.5"
+        },
+        "runtime": {
+          "lib/net10.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.11234"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/10.2.1": {
         "dependencies": {
           "Swashbuckle.AspNetCore.Swagger": "10.2.1",
@@ -214,6 +236,22 @@
           "lib/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
             "assemblyVersion": "10.2.1.0",
             "fileVersion": "10.2.1.2634"
+          }
+        }
+      },
+      "System.IO.Hashing/10.0.5": {
+        "runtime": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "10.0.0.5",
+            "fileVersion": "10.0.526.15411"
+          }
+        }
+      },
+      "VaultSharp/1.17.5.1": {
+        "runtime": {
+          "lib/net8.0/VaultSharp.dll": {
+            "assemblyVersion": "1.17.5.1",
+            "fileVersion": "1.17.5.1"
           }
         }
       }
@@ -253,6 +291,20 @@
       "path": "microsoft.openapi/2.7.5",
       "hashPath": "microsoft.openapi.2.7.5.nupkg.sha512"
     },
+    "RESPite/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RLUe1U5VzdY0gZxXIFAWy8YS6ChUPpcnQkdMg5KkITaSO4YkVdK4Vvq0zsmXeqx/q5rhaIjCUgxnKH4j+6r/RA==",
+      "path": "respite/3.0.0",
+      "hashPath": "respite.3.0.0.nupkg.sha512"
+    },
+    "StackExchange.Redis/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-New/RKMZmVYFhkiS0eegY1YUnFlspcZUhoerUNLiA96rZxgTNhNc07go1CgIjU9JArdLXB4oB4PQvD0y350Aaw==",
+      "path": "stackexchange.redis/3.0.0",
+      "hashPath": "stackexchange.redis.3.0.0.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/10.2.1": {
       "type": "package",
       "serviceable": true,
@@ -280,6 +332,20 @@
       "sha512": "sha512-vzB8ZAGqXus3fdareJ9GHctaRP9ZL+wW9x8U7s1Y+BWprInFvSg6rpD9VhANNpwXA8fUHqu5Agjl/+hHG1BCQA==",
       "path": "swashbuckle.aspnetcore.swaggerui/10.2.1",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.10.2.1.nupkg.sha512"
+    },
+    "System.IO.Hashing/10.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8IBJWcCT9+e4Bmevm4T7+fQEiAh133KGiz4oiVTgJckd3Q76OFdR1falgn9lpz7+C4HJvogCDJeAa2QmvbeVtg==",
+      "path": "system.io.hashing/10.0.5",
+      "hashPath": "system.io.hashing.10.0.5.nupkg.sha512"
+    },
+    "VaultSharp/1.17.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1O/F+AQCkyK4K709pBDYEbDDfJ12OlaE5lnOs9dffq+KxqrnPxh8FIdQtEst9yBJmC7I0BptftzTJyRSwhZR/A==",
+      "path": "vaultsharp/1.17.5.1",
+      "hashPath": "vaultsharp.1.17.5.1.nupkg.sha512"
     }
   }
 }

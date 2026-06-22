@@ -14,7 +14,13 @@ public class KafkaController : ControllerBase
         _producer = producer;
     }
 
+    /// <summary>
+    /// Отправляет сообщение в Kafka (в mock-режиме).
+    /// </summary>
+    /// <param name="message">Сообщение в формате JSON.</param>
+    /// <returns>Статус отправки.</returns>
     [HttpPost("send")]
+
     public async Task<IActionResult> Send([FromBody] object message)
     {
         var json = System.Text.Json.JsonSerializer.Serialize(message);
