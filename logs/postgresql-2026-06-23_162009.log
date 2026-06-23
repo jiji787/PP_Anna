@@ -1,0 +1,28 @@
+2026-06-23 16:20:09 MSK СООБЩЕНИЕ:  система БД была выключена: 2026-06-23 16:20:07 MSK
+2026-06-23 16:25:09 MSK СООБЩЕНИЕ:  начата контрольная точка: time
+2026-06-23 16:25:58 MSK СООБЩЕНИЕ:  контрольная точка завершена: записано буферов: 453 (2.8%), записано SLRU-буферов: 3; добавлено файлов WAL 0, удалено: 0, переработано: 1; запись=49.224 сек., синхр.=0.030 сек., всего=49.279 сек.; синхронизировано_файлов=29, самая_долгая_синхр.=0.007 сек., средняя=0.002 сек.; расстояние=4921 КБ, ожидалось=4921 КБ; lsn=0/22D10B8, lsn redo=0/22D1028
+2026-06-23 16:30:09 MSK СООБЩЕНИЕ:  начата контрольная точка: time
+2026-06-23 16:30:10 MSK СООБЩЕНИЕ:  контрольная точка завершена: записано буферов: 4 (0.0%), записано SLRU-буферов: 0; добавлено файлов WAL 0, удалено: 0, переработано: 0; запись=0.442 сек., синхр.=0.006 сек., всего=0.458 сек.; синхронизировано_файлов=4, самая_долгая_синхр.=0.002 сек., средняя=0.002 сек.; расстояние=10 КБ, ожидалось=4429 КБ; lsn=0/22D3A50, lsn redo=0/22D39F8
+2026-06-23 16:31:49 MSK РћРЁРР‘РљРђ:  missing FROM-clause entry for table "blocking_activity" (СЃРёРјРІРѕР» 127)
+2026-06-23 16:31:49 MSK РћРџР•Р РђРўРћР :  SELECT
+	  blocked_locks.pid AS blocked_pid,
+	  blocked_activity.query AS blocked_query,
+	  blocking_locks.pid AS blocking_pid,
+	  blocking_activity.query AS blocking_query
+	FROM pg_catalog.pg_locks blocked_locks
+	JOIN pg_catalog.pg_stat_activity blocked_activity ON blocked_activity.pid = blocked_locks.pid
+	JOIN pg_catalog.pg_locks blocking_locks ON blocking_locks.locktype = blocked_locks.locktype
+	  AND blocking_locks.database IS NOT DISTINCT FROM blocked_locks.database
+	  AND blocking_locks.relation IS NOT DISTINCT FROM blocked_locks.relation
+	  AND blocking_locks.page IS NOT DISTINCT FROM blocked_locks.page
+	  AND blocking_locks.tuple IS NOT DISTINCT FROM blocked_locks.tuple
+	  AND blocking_locks.virtualxid IS NOT DISTINCT FROM blocked_locks.virtualxid
+	  AND blocking_locks.transactionid IS NOT DISTINCT FROM blocked_locks.transactionid
+	  AND blocking_locks.classid IS NOT DISTINCT FROM blocked_locks.classid
+	  AND blocking_locks.objid IS NOT DISTINCT FROM blocked_locks.objid
+	  AND blocking_locks.objsubid IS NOT DISTINCT FROM blocked_locks.objsubid
+	  AND blocking_locks.pid != blocked_locks.pid
+	WHERE NOT blocked_locks.granted;
+2026-06-23 16:32:26 MSK LOG:  duration: 54817.098 ms  statement: UPDATE users SET name = 'AnotherBlock' WHERE id = 1;
+2026-06-23 16:35:09 MSK СООБЩЕНИЕ:  начата контрольная точка: time
+2026-06-23 16:35:09 MSK СООБЩЕНИЕ:  контрольная точка завершена: записано буферов: 1 (0.0%), записано SLRU-буферов: 1; добавлено файлов WAL 0, удалено: 0, переработано: 0; запись=0.118 сек., синхр.=0.003 сек., всего=0.133 сек.; синхронизировано_файлов=2, самая_долгая_синхр.=0.002 сек., средняя=0.002 сек.; расстояние=1 КБ, ожидалось=3987 КБ; lsn=0/22D4158, lsn redo=0/22D4100
