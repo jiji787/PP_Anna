@@ -16,8 +16,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.Configure<KafkaConfig>(builder.Configuration.GetSection("Kafka"));
-builder.Services.AddSingleton<IKafkaProducer, KafkaProducerMock>();
-builder.Services.AddHostedService<KafkaConsumerMock>();
+builder.Services.AddSingleton<IKafkaProducer, KafkaProducer>();
+builder.Services.AddHostedService<KafkaConsumer>();
 
 // Регистрация Redis
 var redisConnection = builder.Configuration.GetConnectionString("Redis");
