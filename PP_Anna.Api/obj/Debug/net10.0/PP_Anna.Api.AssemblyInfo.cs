@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PP_Anna.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+660164a531e4f4b8195cefdc855ad91bef276bd7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+557cb55e6b4cc8a16b1f4b513a99f4c7ec13b169")]
 [assembly: System.Reflection.AssemblyProductAttribute("PP_Anna.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PP_Anna.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
