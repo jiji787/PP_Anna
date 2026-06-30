@@ -11,8 +11,64 @@
 - [Задания 3 недели](задания/week_3_tasks.md)
 - [Задания 4 недели](задания/week_4_tasks.md)
 - [Задания 5 недели](задания/week_5_tasks.md)
-## Ежедневный отчёт по производственной практике.
 
+## Установка и запуск проекта
+
+### Требования
+- .NET 10 SDK (скачать с https://dotnet.microsoft.com)
+- PostgreSQL 18.4 или выше (скачать с https://www.postgresql.org)
+- Docker Desktop (опционально, для запуска Redis, Kafka, Vault)
+
+### 1. Клонирование репозитория
+```bash
+git clone https://github.com/jiji787/PP_Anna.git
+cd PP_Anna
+```
+
+### 2. Настройка базы данных
+- Убедитесь, что PostgreSQL запущен (служба `postgresql-x64-18` должна быть активна).
+- Создайте базу данных из скрипта. Можно выполнить в pgAdmin или через командную строку:
+```bash
+psql -U postgres -f database_setup.sql
+```
+- Если используете pgAdmin, откройте файл `database_setup.sql` и выполните его содержимое в Query Tool.
+
+### 3. Запуск консольного приложения (CRUD)
+В корне репозитория выполните:
+```bash
+dotnet run
+```
+Приложение предложит меню для работы с пользователями, товарами, заказами и отчётами.
+
+### 4. Запуск Web API (с интеграцией Kafka, Redis, Vault)
+Перейдите в папку `PP_Anna.Api` и выполните:
+```bash
+cd PP_Anna.Api
+dotnet run
+```
+Swagger будет доступен по адресу: `http://localhost:5082/swagger`
+
+### 5. Запуск вспомогательных сервисов через Docker (опционально)
+Если хотите проверить работу с Redis, Vault и Kafka, запустите контейнеры:
+```bash
+# Redis
+docker run -d --name redis-stack -p 6379:6379 redis/redis-stack:latest
+
+# Vault
+docker run -d --name vault-dev -p 8200:8200 -e VAULT_DEV_ROOT_TOKEN_ID=root hashicorp/vault:latest
+
+# Kafka + Zookeeper
+docker run -d --name zookeeper -p 2181:2181 wurstmeister/zookeeper
+docker run -d --name kafka -p 9092:9092 -e KAFKA_LISTENERS=PLAINTEXT://:9092 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 --link zookeeper wurstmeister/kafka
+```
+
+### 6. Запуск тестов
+```bash
+dotnet test
+```
+
+==================================================
+## Ежедневный отчёт по производственной практике.
 ### 01.06.2026 (пн)
 - **Сделано:**  
   - Ознакомилась с программой практики.  
