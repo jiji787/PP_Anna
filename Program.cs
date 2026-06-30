@@ -614,17 +614,21 @@ class Program
     {
         using var conn = new NpgsqlConnection(connectionString);
         conn.Open();
+        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         string sql = @"
-            SELECT u.name, COALESCE(SUM(oi.quantity * oi.price_at_time), 0) AS total_spent
-            FROM users u
-            LEFT JOIN orders o ON u.id = o.user_id
-            LEFT JOIN order_items oi ON o.id = oi.order_id
-            GROUP BY u.id, u.name
-            ORDER BY total_spent DESC;";
+        SELECT u.name, COALESCE(SUM(oi.quantity * oi.price_at_time), 0) AS total_spent
+        FROM users u
+        LEFT JOIN orders o ON u.id = o.user_id
+        LEFT JOIN order_items oi ON o.id = oi.order_id
+        GROUP BY u.id, u.name
+        ORDER BY total_spent DESC;";
         using var cmd = new NpgsqlCommand(sql, conn);
         using var reader = cmd.ExecuteReader();
         Console.WriteLine("\n Сумма покупок по клиентам:");
-        while (reader.Read()) Console.WriteLine($"{reader["name"]} | {reader["total_spent"]:F2}");
+        while (reader.Read())
+            Console.WriteLine($"{reader["name"]} | {reader["total_spent"]:F2}");
+        stopwatch.Stop();
+        Console.WriteLine($"Время выполнения запроса: {stopwatch.ElapsedMilliseconds} мс");
     }
 
     static void OrdersByStatus()
