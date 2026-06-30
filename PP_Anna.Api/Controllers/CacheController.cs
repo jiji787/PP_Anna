@@ -1,0 +1,37 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using PP_Anna.Api.Services;
+
+namespace PP_Anna.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class CacheController : ControllerBase
+{
+    private readonly ICacheService _cache;
+    private readonly ILogger<CacheController> _logger;
+
+    public CacheController(ICacheService cache, ILogger<CacheController> logger)
+    {
+        _cache = cache;
+        _logger = logger;
+    }
+
+    /// <summary>
+    /// Получает данные по идентификатору с использованием кэширования (паттерн Cache-Aside).
+    /// </summary>
+    /// <param name="id">Идентификатор данных.</param>
+    /// <returns>Данные из кэша или из БД (имитация).</returns>
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+        var key = $"data_{id}";
+        var cached = await _cache.GetAsync<string>(key);
+        if (cached != null)
+        {
+            return Ok(new { source = "cache", data = cached });
+        }
+        var data = $"Данные для ID={id} (получены из БД в {DateTime.Now:HH:mm:ss})";
+        await _cache.SetAsync(key, data, TimeSpan.FromSeconds(30));
+        return Ok(new { source = "database", data });
+    }
+}

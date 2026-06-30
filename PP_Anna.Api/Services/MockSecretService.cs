@@ -1,0 +1,30 @@
+﻿using Microsoft.Extensions.Logging;
+
+namespace PP_Anna.Api.Services;
+
+public class MockSecretService : ISecretService
+{
+    private readonly ILogger<MockSecretService> _logger;
+    private readonly Dictionary<string, string> _secrets = new()
+    {
+        { "DbPassword", "postgres890" },
+        { "ApiKey", "12345-abcdef" },
+        { "JwtSecret", "supersecretkey" }
+    };
+
+    public MockSecretService(ILogger<MockSecretService> logger)
+    {
+        _logger = logger;
+    }
+
+    public Task<string?> GetSecretAsync(string key)
+    {
+        if (_secrets.TryGetValue(key, out var value))
+        {
+            _logger.LogInformation("[MOCK VAULT] Секрет {Key} получен", key);
+            return Task.FromResult<string?>(value);
+        }
+        _logger.LogWarning("[MOCK VAULT] Секрет {Key} не найден", key);
+        return Task.FromResult<string?>(null);
+    }
+}

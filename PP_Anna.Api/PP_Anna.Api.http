@@ -1,0 +1,6 @@
+@PP_Anna.Api_HostAddress = http://localhost:5082
+
+GET {{PP_Anna.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
