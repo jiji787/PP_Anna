@@ -473,10 +473,25 @@ class Program
     {
         ShowUsers();
         Console.Write("ID пользователя: ");
-        if (!int.TryParse(Console.ReadLine(), out int userId)) { Console.WriteLine("Неверный ID."); return; }
+        if (!int.TryParse(Console.ReadLine(), out int userId))
+        {
+            Console.WriteLine("Неверный ID.");
+            return;
+        }
 
+        // Проверка существования пользователя
         using var conn = new NpgsqlConnection(connectionString);
         conn.Open();
+        string checkUserSql = "SELECT COUNT(*) FROM users WHERE id = @userId;";
+        using var checkCmd = new NpgsqlCommand(checkUserSql, conn);
+        checkCmd.Parameters.AddWithValue("@userId", userId);
+        long userExists = (long)checkCmd.ExecuteScalar();
+        if (userExists == 0)
+        {
+            Console.WriteLine($"Пользователь с ID {userId} не найден. Создание заказа отменено.");
+            return;
+        }
+
         string insertOrder = "INSERT INTO orders (user_id, status) VALUES (@userId, 'новый') RETURNING id;";
         using var cmdOrder = new NpgsqlCommand(insertOrder, conn);
         cmdOrder.Parameters.AddWithValue("@userId", userId);
@@ -514,7 +529,6 @@ class Program
         }
         Console.WriteLine("Заказ сформирован.");
     }
-
     static void AddItemToOrder()
     {
         ShowOrders();
